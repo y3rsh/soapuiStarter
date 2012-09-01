@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project activeEnvironment="Default" name="FrameworkSetup" soapui-version="4.5.1" abortOnError="false" runType="SEQUENTIAL" resourceRoot="" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MetricWeightUnitSoap12" type="wsdl" bindingName="{http://www.webserviceX.NET/}MetricWeightUnitSoap12" soapVersion="1_2" anonymous="optional" definition="http://www.webservicex.net/convertMetricWeight.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.webserviceX.NET/ChangeMetricWeightUnit" name="ChangeMetricWeightUnit" bindingOperationName="ChangeMetricWeightUnit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.webserviceX.NET/">
+   <soap:Header/>
+   <soap:Body>
+      <web:ChangeMetricWeightUnit>
+         <web:MetricWeightValue>?</web:MetricWeightValue>
+         <web:fromMetricWeightUnit>?</web:fromMetricWeightUnit>
+         <web:toMetricWeightUnit>?</web:toMetricWeightUnit>
+      </web:ChangeMetricWeightUnit>
+   </soap:Body>
+</soap:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/MetricWeightUnitSoap/ChangeMetricWeightUnitRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="MetricWeightUnitSoap" type="wsdl" bindingName="{http://www.webserviceX.NET/}MetricWeightUnitSoap" soapVersion="1_1" anonymous="optional" definition="http://www.webservicex.net/convertMetricWeight.asmx?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.webservicex.net/convertMetricWeight.asmx?WSDL"><con:part><con:url>http://www.webservicex.net/convertMetricWeight.asmx?WSDL</con:url><con:content><![CDATA[<wsdl:definitions targetNamespace="http://www.webserviceX.NET/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://www.webserviceX.NET/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://www.webserviceX.NET/">
+      <s:element name="ChangeMetricWeightUnit">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="MetricWeightValue" type="s:double"/>
+            <s:element minOccurs="1" maxOccurs="1" name="fromMetricWeightUnit" type="tns:MetricWeights"/>
+            <s:element minOccurs="1" maxOccurs="1" name="toMetricWeightUnit" type="tns:MetricWeights"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:simpleType name="MetricWeights">
+        <s:restriction base="s:string">
+          <s:enumeration value="microgram"/>
+          <s:enumeration value="milligram"/>
+          <s:enumeration value="centigram"/>
+          <s:enumeration value="decigram"/>
+          <s:enumeration value="gram"/>
+          <s:enumeration value="dekagram"/>
+          <s:enumeration value="hectogram"/>
+          <s:enumeration value="kilogram"/>
+          <s:enumeration value="metricton"/>
+        </s:restriction>
+      </s:simpleType>
+      <s:element name="ChangeMetricWeightUnitResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ChangeMetricWeightUnitResult" type="s:double"/>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="double" type="s:double"/>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="ChangeMetricWeightUnitSoapIn">
+    <wsdl:part name="parameters" element="tns:ChangeMetricWeightUnit"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMetricWeightUnitSoapOut">
+    <wsdl:part name="parameters" element="tns:ChangeMetricWeightUnitResponse"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMetricWeightUnitHttpGetIn">
+    <wsdl:part name="MetricWeightValue" type="s:string"/>
+    <wsdl:part name="fromMetricWeightUnit" type="s:string"/>
+    <wsdl:part name="toMetricWeightUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMetricWeightUnitHttpGetOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMetricWeightUnitHttpPostIn">
+    <wsdl:part name="MetricWeightValue" type="s:string"/>
+    <wsdl:part name="fromMetricWeightUnit" type="s:string"/>
+    <wsdl:part name="toMetricWeightUnit" type="s:string"/>
+  </wsdl:message>
+  <wsdl:message name="ChangeMetricWeightUnitHttpPostOut">
+    <wsdl:part name="Body" element="tns:double"/>
+  </wsdl:message>
+  <wsdl:portType name="MetricWeightUnitSoap">
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <wsdl:input message="tns:ChangeMetricWeightUnitSoapIn"/>
+      <wsdl:output message="tns:ChangeMetricWeightUnitSoapOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MetricWeightUnitHttpGet">
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <wsdl:input message="tns:ChangeMetricWeightUnitHttpGetIn"/>
+      <wsdl:output message="tns:ChangeMetricWeightUnitHttpGetOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MetricWeightUnitHttpPost">
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <wsdl:input message="tns:ChangeMetricWeightUnitHttpPostIn"/>
+      <wsdl:output message="tns:ChangeMetricWeightUnitHttpPostOut"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MetricWeightUnitSoap" type="tns:MetricWeightUnitSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <soap:operation soapAction="http://www.webserviceX.NET/ChangeMetricWeightUnit" style="document"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MetricWeightUnitSoap12" type="tns:MetricWeightUnitSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <soap12:operation soapAction="http://www.webserviceX.NET/ChangeMetricWeightUnit" style="document"/>
+      <wsdl:input>
+        <soap12:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MetricWeightUnitHttpGet" type="tns:MetricWeightUnitHttpGet">
+    <http:binding verb="GET"/>
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <http:operation location="/ChangeMetricWeightUnit"/>
+      <wsdl:input>
+        <http:urlEncoded/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MetricWeightUnitHttpPost" type="tns:MetricWeightUnitHttpPost">
+    <http:binding verb="POST"/>
+    <wsdl:operation name="ChangeMetricWeightUnit">
+      <http:operation location="/ChangeMetricWeightUnit"/>
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded"/>
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MetricWeightUnit">
+    <wsdl:port name="MetricWeightUnitSoap" binding="tns:MetricWeightUnitSoap">
+      <soap:address location="http://www.webservicex.net/convertMetricWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MetricWeightUnitSoap12" binding="tns:MetricWeightUnitSoap12">
+      <soap12:address location="http://www.webservicex.net/convertMetricWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MetricWeightUnitHttpGet" binding="tns:MetricWeightUnitHttpGet">
+      <http:address location="http://www.webservicex.net/convertMetricWeight.asmx"/>
+    </wsdl:port>
+    <wsdl:port name="MetricWeightUnitHttpPost" binding="tns:MetricWeightUnitHttpPost">
+      <http:address location="http://www.webservicex.net/convertMetricWeight.asmx"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint></con:endpoints><con:operation isOneWay="false" action="http://www.webserviceX.NET/ChangeMetricWeightUnit" name="ChangeMetricWeightUnit" bindingOperationName="ChangeMetricWeightUnit" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ChangeMetricWeightUnit>
+         <web:MetricWeightValue>?</web:MetricWeightValue>
+         <web:fromMetricWeightUnit>?</web:fromMetricWeightUnit>
+         <web:toMetricWeightUnit>?</web:toMetricWeightUnit>
+      </web:ChangeMetricWeightUnit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>weight</con:name><con:value>200</con:value></con:property><con:property><con:name>startUnit</con:name><con:value>gram</con:value></con:property><con:property><con:name>endUnit</con:name><con:value>milligram</con:value></con:property><con:property><con:name>expectedResult</con:name><con:value>200000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.xml.StreamingMarkupBuilder
+
+def actualResult = "error" 
+def testDataSet = []
+def failureList = []
+def mytest =[]
+
+def fileName = "c:\\soapui\\weights.csv" //set path of the csv to read in
+
+// Opens file, iterates through each line, splits the line on the commas into an array, and adds
+// the array to testDataSet. (So testDataSet is an array of arrays).
+new File(fileName).eachLine { line -> testDataSet.add( line.split(",") ) }
+
+log.info( "Read " + testDataSet.size() + " test values from " + fileName )
+
+// If any iteration fails, it will add an entry to the failure list, and they will all be printed at the end
+context.setProperty( "failureList", failureList )
+
+// Store the test data in a property called "testData"
+context.setProperty( "testDataSet", testDataSet )
+
+def testDataSetWorker = context.getProperty("testDataSet") // Retrieve the test data from the testData property
+
+testDataSetWorker.eachWithIndex{it, index ->
+	log.info("**************test ${index + 1} start*************************")
+	def testDataLine = it // Select the current test data line
+	def props = testRunner.testCase.getTestStepByName( "Properties" )
+	props.setPropertyValue("weight", testDataLine[0])//first element in line
+	props.setPropertyValue("startUnit", testDataLine[1])//second element in line
+	props.setPropertyValue("endUnit", testDataLine[2])
+	props.setPropertyValue("expectedResult", testDataLine[3])
+	def expectedResult = context.expand( '${Properties#expectedResult}' )
+
+	//make request
+	testRunner.runTestStepByName( "ChangeMetricWeightUnit" )
+
+	//handle the response
+	def response = context.expand( '${ChangeMetricWeightUnit#Response}' )
+	def responseXml = new XmlSlurper().parseText(response)
+
+	responseXml.Body.ChangeMetricWeightUnitResponse.ChangeMetricWeightUnitResult.each{
+		log.info("One method to get a node ${it.text()}");
+	}
+	
+	responseXml.breadthFirst().each {
+		 def v = it.toString()
+ 		if ( it.name() == 'ChangeMetricWeightUnitResult')
+   			//log.info (it.text())
+  			 actualResult = it.text()
+   			// it.replaceBody("$v XX")
+ 	}
+ 	log.info("actual result in XML = " + actualResult.trim() )
+	log.info("expected result in file = " + expectedResult.trim() )
+	def resulter = actualResult.trim() == expectedResult.trim();
+	assert actualResult.trim() == expectedResult.trim(); 
+ 	log.info("Result as expected = ${actualResult.trim() == expectedResult.trim()}")
+ 	mytest.add("${actualResult.trim()},${expectedResult.trim()},${resulter}");
+	log.info("**************test ${index + 1} done*************************")
+
+}
+
+//create a new file each run,with a timestamp to make the name unique
+def stamp = new Date().format("yyyyMMdd'T'HHmmssSSS"); 
+new File("c:\\soapui\\weightsOut${stamp.toString()}.csv").withWriter { out ->
+  mytest.each {
+    out.println it
+    }
+}</script></con:config></con:testStep><con:testStep type="request" name="ChangeMetricWeightUnit"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MetricWeightUnitSoap</con:interface><con:operation>ChangeMetricWeightUnit</con:operation><con:request name="ChangeMetricWeightUnit" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:ChangeMetricWeightUnit>
+         <web:MetricWeightValue>${Properties#weight}</web:MetricWeightValue>
+         <web:fromMetricWeightUnit>${Properties#startUnit}</web:fromMetricWeightUnit>
+         <web:toMetricWeightUnit>${Properties#endUnit}</web:toMetricWeightUnit>
+      </web:ChangeMetricWeightUnit>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
