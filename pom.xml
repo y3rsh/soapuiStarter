@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>soapui</groupId>
+	<artifactId>framework</artifactId>
+	<packaging>jar</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>soapUIframework</name>
+	<url>http://maven.apache.org</url>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>eviwarePluginRepository</id>
+			<url>http://www.soapui.org/repository/maven2/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>eviware</groupId>
+				<artifactId>maven-soapui-pro-plugin</artifactId>
+				<version>4.5.1</version>
+				<configuration>
+					<projectFile>C:\soapui\FrameworkSetup-soapui-project.xml</projectFile>
+					<testSuite>ExampleSuite</testSuite>
+					<testCase>soap</testCase>
+					<outputFolder>C:/soapui/target/surefire-reports</outputFolder>
+					<junitReport>true</junitReport>
+					<exportwAll>true</exportwAll>
+					<printReport>true</printReport>
+					<projectProperties>
+						
+						<projectProperty>datPath=c:\\soapui\\weights.csv</projectProperty>
+						
+					</projectProperties>
+				</configuration>	
+				<executions>
+					<execution>
+						<id>Framework</id>
+						<goals>
+							<goal>test</goal> 
+						</goals>
+						<phase>test</phase>           
+					</execution>
+				</executions> 				
+			</plugin>   
+		</plugins>
+	</build>          
+</project>

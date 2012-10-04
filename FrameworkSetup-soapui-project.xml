@@ -154,14 +154,16 @@
          <web:toMetricWeightUnit>?</web:toMetricWeightUnit>
       </web:ChangeMetricWeightUnit>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>weight</con:name><con:value>200</con:value></con:property><con:property><con:name>startUnit</con:name><con:value>gram</con:value></con:property><con:property><con:name>endUnit</con:name><con:value>milligram</con:value></con:property><con:property><con:name>expectedResult</con:name><con:value>200000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.xml.StreamingMarkupBuilder
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="ExampleSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="soap" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>weight</con:name><con:value>200</con:value></con:property><con:property><con:name>startUnit</con:name><con:value>gram</con:value></con:property><con:property><con:name>endUnit</con:name><con:value>milligram</con:value></con:property><con:property><con:name>expectedResult</con:name><con:value>200000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.xml.StreamingMarkupBuilder
 
 def actualResult = "error" 
 def testDataSet = []
 def failureList = []
 def mytest =[]
 
-def fileName = "c:\\soapui\\weights.csv" //set path of the csv to read in
+def fileName = context.expand('${#Project#datPath}')  //set path of the csv to read in
+//log.info fileName
+//log.info context.expand('${#Project#datPath}')
 
 // Opens file, iterates through each line, splits the line on the commas into an array, and adds
 // the array to testDataSet. (So testDataSet is an array of arrays).
@@ -221,7 +223,8 @@ new File("c:\\soapui\\weightsOut${stamp.toString()}.csv").withWriter { out ->
   mytest.each {
     out.println it
     }
-}</script></con:config></con:testStep><con:testStep type="request" name="ChangeMetricWeightUnit"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MetricWeightUnitSoap</con:interface><con:operation>ChangeMetricWeightUnit</con:operation><con:request name="ChangeMetricWeightUnit" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
+}
+</script></con:config></con:testStep><con:testStep type="request" name="ChangeMetricWeightUnit"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>MetricWeightUnitSoap</con:interface><con:operation>ChangeMetricWeightUnit</con:operation><con:request name="ChangeMetricWeightUnit" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.webservicex.net/convertMetricWeight.asmx</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.webserviceX.NET/">
    <soapenv:Header/>
    <soapenv:Body>
       <web:ChangeMetricWeightUnit>
@@ -230,4 +233,4 @@ new File("c:\\soapui\\weightsOut${stamp.toString()}.csv").withWriter { out ->
          <web:toMetricWeightUnit>${Properties#endUnit}</web:toMetricWeightUnit>
       </web:ChangeMetricWeightUnit>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>datPath</con:name><con:value>c:\\soapui\\weights.csv</con:value></con:property></con:properties><con:wssContainer/></con:soapui-project>
