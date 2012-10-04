@@ -22,26 +22,41 @@
 				<artifactId>maven-soapui-pro-plugin</artifactId>
 				<version>4.5.1</version>
 				<configuration>
-					<projectFile>C:\soapui\FrameworkSetup-soapui-project.xml</projectFile>
-					<testSuite>ExampleSuite</testSuite>
-					<testCase>soap</testCase>
 					<outputFolder>C:/soapui/target/surefire-reports</outputFolder>
 					<junitReport>true</junitReport>
 					<exportwAll>true</exportwAll>
 					<printReport>true</printReport>
-					<projectProperties>
-						
-						<projectProperty>datPath=c:\\soapui\\weights.csv</projectProperty>
-						
-					</projectProperties>
 				</configuration>	
 				<executions>
 					<execution>
-						<id>Framework</id>
+						<id>soapTest</id>
+						<phase>test</phase>
 						<goals>
 							<goal>test</goal> 
 						</goals>
-						<phase>test</phase>           
+						<configuration>
+							<projectFile>C:\soapui\FrameworkSetup-soapui-project.xml</projectFile>
+							<testSuite>ExampleSuite</testSuite>
+							<testCase>soap</testCase>
+							<projectProperties>
+								<projectProperty>datPath=c:\\soapui\\weights.csv</projectProperty>
+							</projectProperties>
+						</configuration>
+					</execution>
+					<execution>
+						<id>restTest</id>
+						<phase>test</phase> 
+						<goals>
+							<goal>test</goal> 
+						</goals>
+						<configuration>
+							<projectFile>C:\soapui\FrameworkSetup-soapui-project.xml</projectFile>
+							<testSuite>RestExample</testSuite>
+							<testCase>GoogleMapPlaces</testCase>
+							<projectProperties>
+								<projectProperty>datPath=c:\\soapui\\addresses.csv</projectProperty>
+							</projectProperties>
+						</configuration>
 					</execution>
 				</executions> 				
 			</plugin>   

@@ -154,7 +154,7 @@
          <web:toMetricWeightUnit>?</web:toMetricWeightUnit>
       </web:ChangeMetricWeightUnit>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="ExampleSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="soap" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>weight</con:name><con:value>200</con:value></con:property><con:property><con:name>startUnit</con:name><con:value>gram</con:value></con:property><con:property><con:name>endUnit</con:name><con:value>milligram</con:value></con:property><con:property><con:name>expectedResult</con:name><con:value>200000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.xml.StreamingMarkupBuilder
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:RestService" wadlVersion="http://wadl.dev.java.net/2009/02" name="Google Map API" type="rest" basePath="" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache/><con:endpoints><con:endpoint>http://maps.googleapis.com</con:endpoint></con:endpoints><con:resource name="Places" path="/maps/api/geocode/json"><con:settings/><con:parameters><con:parameter><con:name>address</con:name><con:value>1600 Amphitheatre Parkway, Mountain View, CA</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>1600 Amphitheatre Parkway, Mountain View, CA</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter><con:parameter><con:name>sensor</con:name><con:value>false</con:value><con:style>QUERY</con:style><con:type xmlns:xs="http://www.w3.org/2001/XMLSchema">xs:string</con:type><con:default>false</con:default><con:path xsi:nil="true"/><con:description xsi:nil="true"/></con:parameter></con:parameters><con:method name="GET Places" method="GET"><con:settings/><con:parameters/><con:representation type="RESPONSE"><con:mediaType>application/xml; charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element>GeocodeResponse</con:element></con:representation><con:representation type="RESPONSE"><con:mediaType>application/json; charset=UTF-8</con:mediaType><con:status>200</con:status><con:params/><con:element xmlns:json="http://maps.googleapis.com/maps/api/geocode/json">json:Response</con:element></con:representation><con:request name="Request 1" mediaType="application/xml"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://maps.googleapis.com</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters/></con:request></con:method></con:resource></con:interface><con:testSuite name="ExampleSuite"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="soap" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>weight</con:name><con:value>200</con:value></con:property><con:property><con:name>startUnit</con:name><con:value>gram</con:value></con:property><con:property><con:name>endUnit</con:name><con:value>milligram</con:value></con:property><con:property><con:name>expectedResult</con:name><con:value>200000</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script>import groovy.xml.StreamingMarkupBuilder
 
 def actualResult = "error" 
 def testDataSet = []
@@ -233,4 +233,58 @@ new File("c:\\soapui\\weightsOut${stamp.toString()}.csv").withWriter { out ->
          <web:toMetricWeightUnit>${Properties#endUnit}</web:toMetricWeightUnit>
       </web:ChangeMetricWeightUnit>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>datPath</con:name><con:value>c:\\soapui\\weights.csv</con:value></con:property></con:properties><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration/></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.webserviceX.NET/ChangeMetricWeightUnit"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:testSuite name="RestExample"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="GoogleMapPlaces" searchProperties="true"><con:settings/><con:testStep type="properties" name="Properties"><con:settings/><con:config xsi:type="con:PropertiesStep" saveFirst="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:properties><con:property><con:name>sensor</con:name><con:value>false</con:value></con:property><con:property><con:name>address</con:name><con:value>1600 Amphitheatre Parkway Mountain View CA</con:value></con:property></con:properties></con:config></con:testStep><con:testStep type="groovy" name="Groovy Script"><con:settings/><con:config><script> import groovy.json.JsonSlurper
+def actualResult = "error" 
+def testDataSet = []
+def failureList = []
+def mytest =[]
+
+def fileName = context.expand('${#Project#datPathRest}')  //set path of the csv to read in
+//log.info fileName
+//log.info context.expand('${#Project#datPath}')
+
+// Opens file, iterates through each line, splits the line on the commas into an array, and adds
+// the array to testDataSet. (So testDataSet is an array of arrays).
+new File(fileName).eachLine { line -> testDataSet.add( line.split(",") ) }
+
+log.info( "Read " + testDataSet.size() + " test values from " + fileName )
+
+// If any iteration fails, it will add an entry to the failure list, and they will all be printed at the end
+context.setProperty( "failureList", failureList )
+
+// Store the test data in a property called "testData"
+context.setProperty( "testDataSet", testDataSet )
+
+def testDataSetWorker = context.getProperty("testDataSet") // Retrieve the test data from the testData property
+
+testDataSetWorker.eachWithIndex{it, index ->
+	log.info("**************test ${index + 1} start*************************")
+	def testDataLine = it // Select the current test data line
+	def props = testRunner.testCase.getTestStepByName( "Properties" )
+	props.setPropertyValue("sensor", testDataLine[0])//first element in line
+	props.setPropertyValue("address", testDataLine[1])//second element in line
+	//props.setPropertyValue("expectedResult", testDataLine[2])
+	def expectedResult = context.expand( '${Properties#address}' )
+
+	//make request
+	testRunner.runTestStepByName( "GetPlaces" )
+
+	//handle the response
+	def response = context.expand( '${GetPlaces#Response}' )
+ 	//log.info response
+	//parse JSON
+	def slurper = new JsonSlurper()
+	def result = slurper.parseText(response)
+	actualResult =  result.results.formatted_address
+	mytest.add(expectedResult + "|" + actualResult) 
+}
+//create a new file each run,with a timestamp to make the name unique
+def stamp = new Date().format("yyyyMMdd'T'HHmmssSSS"); 
+new File("c:\\soapui\\addressesOut${stamp.toString()}.txt").withWriter { out ->
+  mytest.each {
+    def formatted = it.replace("[","")
+    formatted = formatted.replace("]","")
+    out.println formatted
+    }
+}
+</script></con:config></con:testStep><con:testStep type="restrequest" name="GetPlaces"><con:settings/><con:config service="Google Map API" resourcePath="/maps/api/geocode/json" methodName="GET Places" xsi:type="con:RestRequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:restRequest name="GetPlaces" mediaType="application/xml" accept="application/json; charset=UTF-8"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:endpoint>http://maps.googleapis.com</con:endpoint><con:request/><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:parameters><entry key="address" value="${Properties#address}" xmlns="http://eviware.com/soapui/config"/></con:parameters></con:restRequest></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>datPath</con:name><con:value>c:\\soapui\\weights.csv</con:value></con:property><con:property><con:name>datPathRest</con:name><con:value>c:\\soapui\\addresses.csv</con:value></con:property></con:properties><con:wssContainer/></con:soapui-project>
